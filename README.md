@@ -34,6 +34,11 @@ me.ngyu.loanmaru
 
 패키지는 코드가 생길 때 만든다. 지금은 `common.exception`만 있다.
 
+### ERD
+
+![대출마루 요약 ERD](docs/erd/overview.svg)
+[자세한 ERD 보러가기 →](docs/erd/detailed.md)
+
 ### 로컬 실행
 
 Docker와 JDK가 필요하다. 로컬에 JDK 21이 없으면 Gradle이 툴체인을 내려받는다.
