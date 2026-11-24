@@ -24,7 +24,9 @@ git flow를 참고하되, 지금은 배포 단계가 없어 `main`과 작업 브
 2. `origin/main`에서 작업 브랜치를 만든다.
 3. 작업하고 검증한 뒤 로컬에 커밋한다.
 4. 브랜치, 커밋 목록, PR 제목·본문 초안을 보여 주고 승인을 받는다.
-5. 승인받은 뒤에 push하고 PR을 만든다. 본문 끝에 `Closes #<이슈 번호>`를 쓴다.
+   - 제목은 이슈 제목과 같게 쓴다.
+   - 본문은 `.github/pull_request_template.md`의 절을 그대로 채운다. 맨 위 `> issue : #<번호>`, 맨 끝 `Closes #<번호>`를 둔다. Claude Code 생성 표시 줄(`🤖 Generated with ...`)은 넣지 않는다.
+5. 승인받은 뒤에 push하고 `gh pr create --body-file`로 PR을 만든다.
 6. 머지는 사용자가 한다.
 
 ## 커밋 메시지
