@@ -20,6 +20,10 @@ public record LoanAccountListResponse(
     return new LoanAccountListResponse("0000", "정상", accounts.stream().map(Account::from).toList());
   }
 
+  public static LoanAccountListResponse failure() {
+    return new LoanAccountListResponse("9999", "시스템 오류", null);
+  }
+
   public record Account(
           String acctNo,
           String custCi,
