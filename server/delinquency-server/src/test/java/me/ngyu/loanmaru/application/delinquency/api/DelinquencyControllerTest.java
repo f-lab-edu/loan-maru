@@ -39,4 +39,20 @@ class DelinquencyControllerTest {
             .andExpect(status().isBadRequest())
             .andExpect(jsonPath("$.code").value("VALIDATION_ERROR"));
   }
+
+  @Test
+  @DisplayName("계좌번호가 빈 값이면 400으로 응답한다.")
+  void rejectEmptyAccountNo() throws Exception {
+    mockMvc.perform(get("/delinquencies").queryParam("acctNo", ""))
+            .andExpect(status().isBadRequest())
+            .andExpect(jsonPath("$.code").value("VALIDATION_ERROR"));
+  }
+
+  @Test
+  @DisplayName("여러 계좌번호 중 공백이 있으면 400으로 응답한다.")
+  void rejectBlankAccountNoInList() throws Exception {
+    mockMvc.perform(get("/delinquencies").queryParam("acctNo", "110012345678", " "))
+            .andExpect(status().isBadRequest())
+            .andExpect(jsonPath("$.code").value("VALIDATION_ERROR"));
+  }
 }
