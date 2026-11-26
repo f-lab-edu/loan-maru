@@ -2,6 +2,7 @@ package me.ngyu.loanmaru.application.alimtalk.api.dto;
 
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import java.util.List;
 import me.ngyu.loanmaru.application.alimtalk.domain.Alimtalk;
 import me.ngyu.loanmaru.application.alimtalk.domain.AlimtalkButton;
@@ -9,7 +10,7 @@ import me.ngyu.loanmaru.application.alimtalk.domain.AlimtalkButton;
 public record AlimtalkSendRequest(
         @NotBlank String screeningId,
         @NotBlank String message,
-        List<@Valid Button> buttons
+        List<@NotNull @Valid Button> buttons
 ) {
 
   public Alimtalk toAlimtalk() {
