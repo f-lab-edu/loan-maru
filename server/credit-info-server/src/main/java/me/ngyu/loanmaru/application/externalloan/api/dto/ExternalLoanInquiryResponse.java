@@ -22,6 +22,10 @@ public record ExternalLoanInquiryResponse(
     );
   }
 
+  public static ExternalLoanInquiryResponse fail() {
+    return new ExternalLoanInquiryResponse("FAIL", null, null);
+  }
+
   public record Loan(
           String institutionCd,
           String loanTpCd,
