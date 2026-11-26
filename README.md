@@ -58,6 +58,7 @@ me.ngyu.loanmaru
 
 - 의존 방향: `api → service → domain ← infrastructure`
 - 예외: `service`는 `api.dto`를 파라미터나 반환 타입으로 쓸 수 있다.
+- 테이블 구조: [ERD](docs/erd/README.md)
 
 ### 로컬 실행
 

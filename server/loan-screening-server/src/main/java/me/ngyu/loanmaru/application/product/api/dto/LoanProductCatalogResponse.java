@@ -35,13 +35,13 @@ public record LoanProductCatalogResponse(
 
     static Product from(LoanProduct product) {
       return new Product(
-              product.productCode(),
-              product.productName(),
-              product.maxLimitAmount(),
-              product.interestRate(),
-              product.dsrApplied(),
-              product.appliedRules(),
-              EligibilityResponse.from(product.eligibility())
+              product.getProductCode(),
+              product.getProductName(),
+              product.getMaxLimitAmount(),
+              product.getInterestRate(),
+              product.isDsrApplied(),
+              product.getAppliedRules(),
+              EligibilityResponse.from(product.getEligibility())
       );
     }
   }

@@ -1,5 +1,6 @@
 package me.ngyu.loanmaru.application.product.api;
 
+import static org.hamcrest.Matchers.containsInAnyOrder;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -25,7 +26,8 @@ class LoanProductControllerTest {
             .andExpect(status().isOk())
             .andExpect(jsonPath("$.thresholdVersion").value("2026-11-01.v3"))
             .andExpect(jsonPath("$.products[0].productCode").value("L01"))
-            .andExpect(jsonPath("$.products[0].appliedRules.length()").value(5))
+            .andExpect(jsonPath("$.products[0].appliedRules").value(containsInAnyOrder(
+                    "ELIGIBILITY", "DUPLICATE_LOAN", "DELINQUENCY", "PRODUCT_MAX_LIMIT", "DSR")))
             .andExpect(jsonPath("$.products[1].eligibility.minAge").value(19))
             .andExpect(jsonPath("$.thresholds.dsrLimitRate").value(40.0));
   }
